@@ -11,13 +11,14 @@ should convert to ["Jane Doe", "James Bond"]
 Note the space in between first and last names.
 You can assume that neither firstName nor lastName will be blank
 ------------------------------------------------------------------------------------------------ */
+
 const toLastNames = people => {
   // Solution code here...
-  
-  let newArr = people.map((item)=>{
-      return item.firstName +' '+ item.lastName;
-    });
-   return newArr;
+  let newArr= people.map((person)=>{
+    return person.firstName + ' ' +person.lastName;
+  })
+  return newArr;
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -29,11 +30,11 @@ Write a function named addValues that, given an array of numbers as input, uses 
 
 const addValues = (arr) => {
   // Solution code here...
-let sum = arr.reduce((acc,val,idx)=>{
-  acc = acc + val;
-  return acc;
+let sum = arr.reduce((acc,val)=>{
+  acc = acc + val ;
+  return acc ;
 },0);
-return sum;
+return sum ;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -50,12 +51,11 @@ Write a function named addPurchases that, given an array of objects as input, us
 
 const addPurchases = (arr) => {
   // Solution code here...
-
-  let newArr= arr.reduce((acc,val,idx)=>{
-    acc += val.purchasePrice;
-    return acc;
-  },0);
-  return newArr;
+let newArr= arr.reduce((acc,item)=>{
+acc = acc + item.purchasePrice;
+return acc ;
+},0);
+return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -68,11 +68,11 @@ Note: You may not use the array's built-in length property.
 
 const countNumberOfElements = (arr) => {
   // Solution code here...
-  let newArr= arr.reduce((acc,val,idx)=>{
-    acc += 1;
-    return acc;
-  },0);
-  return newArr;
+ let iterateNum = arr.reduce((acc,item)=>{
+   acc = acc +1 ;
+   return acc ;
+ },0);
+ return iterateNum;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -154,11 +154,21 @@ describe('Testing challenge 6', () => {
 });
 ------------------------------------------------------------------------------------------------ */
 
-const reversedString = (str) => {
-  // Solution code here...
-  let ReverseWord= str.split("").reduce((rev, char) => char + rev, '');
-  return ReverseWord;
+// const reversedString = (str) => {
+//   // Solution code here...
+//   let ReverseWord= str.split("").reduce((acc,item,idx)=>{
+// acc [8] = item 
+// return acc ;
+//   });
+//   return ReverseWord;
+// };
 
+const reversedString = (str) => {
+  let ReverseWord= str.split('').reduce((acc, item)=> {
+    acc = item + acc  ;
+    return acc ;
+  });
+  return ReverseWord;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -360,7 +370,7 @@ describe('Testing challenge 6', () => {
   });
 });
 
-xdescribe('Testing challenge 7', () => {
+describe('Testing challenge 7', () => {
   test('It should return the total number of children', () => {
     expect(countNumberOfChildren(characters)).toStrictEqual(14);
   });
